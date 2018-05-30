@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import numbergame.event.MenuActionListener;
 import numbergame.event.PointListener;
@@ -50,7 +51,14 @@ public class GamePanel extends JPanel{
             @Override
             public void buttonClicked(String command) {
                 if(command.equalsIgnoreCase("restart")){
+                    if(point < 25)
+                    {
+                        JOptionPane.showMessageDialog(null, "Insufficient scores, scores must be greater than 25");
+                        return;
+                    }
                     gameArea.resetGame();
+                    point = point - 25;
+                    scorePanel.updateScore(Integer.toString(point));
                 }
             }
         };
