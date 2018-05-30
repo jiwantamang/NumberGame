@@ -7,7 +7,9 @@ package numbergame.view;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import numbergame.event.ClickListener;
 import numbergame.event.PointListener;
@@ -29,6 +31,19 @@ public class GameArea extends javax.swing.JPanel {
     private int previous_column = -1;
     private INumber previous_number = null;
           
+    private Map<String,INumber> firstRow = new HashMap<>();
+    private Map<String,INumber> secondRow = new HashMap<>();
+    private Map<String,INumber> thirdRow = new HashMap<>();
+    private Map<String,INumber> fourthRow = new HashMap<>();
+    private Map<String,INumber> fifthRow = new HashMap<>();
+    private Map<String,INumber> sixthRow = new HashMap<>();
+    private Map<String,INumber> seventhRow = new HashMap<>();
+    private Map<String,INumber> eightRow = new HashMap<>();
+    private Map<String,INumber> ninthRow = new HashMap<>();
+    private Map<String,INumber> tenthRow = new HashMap<>();
+    private Map<String,INumber> elevenRow = new HashMap<>();
+    private Map<String,INumber> twelveRow = new HashMap<>();
+    
     private PointListener pointListener;
     public GameArea() {
         initComponents();
@@ -44,11 +59,12 @@ public class GameArea extends javax.swing.JPanel {
                     for(ClickListener listener : listenerObjects)
                         listener.clicked(row, column,number);
                 }else{
-                    if(isValidSwitched(row, column)){
+                    if(isValidSwitched(row, column,number)){
                         int row_moved = Math.abs(row - previous_row);
                         int column_moved = Math.abs(column - previous_column);
                         
                         // check if pair or not
+                        
                         if((previous_number.getNumber() + number.getNumber()) == 10 || (previous_number.getNumber() == number.getNumber())){
                             number.paired();
                             previous_number.paired();
@@ -58,6 +74,13 @@ public class GameArea extends javax.swing.JPanel {
                             
                             // update point listener
                             List<Integer> point = new ArrayList<>();
+                            // check either row or column is moved
+                            if(row_moved > 0){
+                                // check if blank panel is between
+                            }
+                            if(column_moved > 0){
+                                // check if blank panel is between
+                            }
                             point.add(10);
                             pointListener.pointGained(point);
                         }
@@ -80,54 +103,65 @@ public class GameArea extends javax.swing.JPanel {
         gbc.gridy = 0;
         _11 = new Number(1,1,this);
         _11.setListener(listener);
+        firstRow.put("_11", _11);
         add(_11,gbc);
         
+                
         gbc.gridx = 1;
         gbc.gridy = 0;
         _21 = new Number(2,1,this);
         _21.setListener(listener);
+        firstRow.put("_21", _21);
         add(_21,gbc);
+        
         
         gbc.gridx = 2;
         gbc.gridy = 0;
         _31 = new Number(3,1,this);
         _31.setListener(listener);
+        firstRow.put("_31", _31);
         add(_31,gbc);
         
         gbc.gridx = 3;
         gbc.gridy = 0;
         _41 = new Number(4,1,this);
         _41.setListener(listener);
+        firstRow.put("_41", _41);
         add(_41,gbc);
         
         gbc.gridx = 4;
         gbc.gridy = 0;
         _51 = new Number(5,1,this);
         _51.setListener(listener);
+        firstRow.put("_51", _51);
         add(_51,gbc);
         
         gbc.gridx = 5;
         gbc.gridy = 0;
         _61 = new Number(6,1,this);
         _61.setListener(listener);
+        firstRow.put("_61", _61);
         add(_61,gbc);
         
         gbc.gridx = 6;
         gbc.gridy = 0;
         _71 = new Number(7,1,this);
         _71.setListener(listener);
+        firstRow.put("_71", _71);
         add(_71,gbc);
         
         gbc.gridx = 7;
         gbc.gridy = 0;
         _81 = new Number(8,1,this);
         _81.setListener(listener);
+        firstRow.put("_81", _81);
         add(_81,gbc);
         
         gbc.gridx = 8;
         gbc.gridy = 0;
         _91 = new Number(9,1,this);
         _91.setListener(listener);
+        firstRow.put("_91", _91);
         add(_91,gbc);
         
         
@@ -135,7 +169,7 @@ public class GameArea extends javax.swing.JPanel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         _12 = new Number(1,2,this);
-        _12.setListener(listener);
+        _12.setListener(listener);        
         add(_12,gbc);
         
         gbc.gridx = 1;
@@ -1002,16 +1036,26 @@ public class GameArea extends javax.swing.JPanel {
         return number;
     }
     
-    private boolean isValidSwitched(int new_row, int new_column) {
+    private boolean isValidSwitched(int new_row, int new_column,INumber number) {
                 // check if row or column is valid for move or not
                 if((new_row != previous_row) && (new_column == previous_column)){
+                    // row is moved
                     int row_moved = new_row - previous_row;                    
-                    return Math.abs(row_moved) <= 2 ? true : false;
+                    if(Math.abs(row_moved) <= 1){
+                        return true;
+                    }else{
+                        // check if blank panel is existed or not
+                        switch(new_row){
+                            
+                        }
+                        
+                    }
+                    return Math.abs(row_moved) <= 1 ? true : false;
                 }
                 
                 if((new_column != previous_column) && (new_row == previous_row)){
                     int column_moved = new_column - previous_column;                    
-                    return Math.abs(column_moved) <=2 ? true : false;
+                    return Math.abs(column_moved) <=1 ? true : false;
                 }
                 
                 return false;

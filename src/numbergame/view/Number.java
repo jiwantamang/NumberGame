@@ -108,26 +108,7 @@ public class Number extends JButton implements ActionListener,MouseListener,INum
         setDefaultBackground();
     }
 
-    @Override
-    public void moveLeft(int length) {
-        
-    }
-
-    @Override
-    public void moveRigth(int length) {
-        
-    }
-
-    @Override
-    public void moveDown(int length) {
-        
-    }
-
-    @Override
-    public void moveUp(int length) {
-        
-    }
-
+   
     @Override
     public void clicked(int row, int column,INumber number) {  
         if(isPaired) return;
@@ -138,6 +119,7 @@ public class Number extends JButton implements ActionListener,MouseListener,INum
         }
         
     }
+        
 
     @Override
     public int getNumber() {
@@ -151,6 +133,15 @@ public class Number extends JButton implements ActionListener,MouseListener,INum
         isPaired = true;
     }
 
+    @Override
+    public boolean isBlankPanel(int row,int column){
+        if(this.row == row && this.column == column){
+            // check if it is a blank panel
+            return (getBackground() == Color.ORANGE) ? true : false;
+        }
+        return false;
+    }
+    
     @Override
     public boolean isPaired() {
         return isPaired;
