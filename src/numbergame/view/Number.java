@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import numbergame.event.ClickListener;
 
 /**
@@ -134,17 +133,23 @@ public class Number extends JButton implements ActionListener,MouseListener,INum
     }
 
     @Override
-    public boolean isBlankPanel(int row,int column){
-        if(this.row == row && this.column == column){
-            // check if it is a blank panel
-            return (getBackground() == Color.ORANGE) ? true : false;
-        }
-        return false;
+    public boolean isBlankPanel(){
+        return (getBackground() == Color.ORANGE) ? true : false;
     }
     
     @Override
     public boolean isPaired() {
         return isPaired;
+    }
+
+    @Override
+    public int getRow() {
+        return this.row;
+    }
+
+    @Override
+    public int getColumn() {
+        return this.column;
     }
     
 }

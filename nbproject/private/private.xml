@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/GameAreaBack.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/GamePanel.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/event/ClickListener.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/NumberGame.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/GameArea.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/ScorePanel.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/Number.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/NumberPanel.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/view/INumber.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/event/MenuActionListener.java</file>
-            <file>file:/home/g1/NetBeansProjects/NumberGame/src/numbergame/event/PointListener.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

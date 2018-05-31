@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -51,14 +53,24 @@ public class GamePanel extends JPanel{
             @Override
             public void buttonClicked(String command) {
                 if(command.equalsIgnoreCase("restart")){
+                    
+                }
+                
+                if(command.equalsIgnoreCase("repopulate")){
                     if(point < 25)
                     {
                         JOptionPane.showMessageDialog(null, "Insufficient scores, scores must be greater than 25");
                         return;
                     }
-                    gameArea.resetGame();
+                    
+                    gameArea.repopulateNumber();
+                    
                     point = point - 25;
                     scorePanel.updateScore(Integer.toString(point));
+                }
+                
+                if(command.equalsIgnoreCase("exit")){
+                    System.exit(0);
                 }
             }
         };
