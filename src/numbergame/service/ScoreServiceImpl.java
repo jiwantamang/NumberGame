@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,6 +83,8 @@ public class ScoreServiceImpl implements ScoreService{
         } catch (IOException ex) {
             Logger.getLogger(ScoreServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        scores.sort(Comparator.comparingInt(Score::getPlayers_score).reversed());
         
         return scores;
     }

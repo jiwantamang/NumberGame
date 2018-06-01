@@ -85,13 +85,8 @@ public class GameMenu extends javax.swing.JPanel implements ActionListener{
         }
         
         if(e.getSource() == btnHighScore){
-            ScoreService scoreService = new ScoreServiceImpl();
-            List<Score> scores = scoreService.getHighScores(1, 1);
-            
-            for(Score s : scores){
-                System.out.println(s.getTime()+ " "+ s.getDate() + " "+s.getPlayers_initial()+ " "+s.getPair() + " "+s.getPlayers_score());
-            }
-            
+            HighScoreView highScoreView = new HighScoreView();
+            MainPanel.setBodyPanel(highScoreView);
         }
     }
 }

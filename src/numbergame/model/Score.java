@@ -61,6 +61,13 @@ public class Score {
     public void setPlayers_score(int players_score) {
         this.players_score = players_score;
     }
+
+    @Override
+    public String toString() {
+        return "Score "+ players_score + ", Pair "+pair + ", Date " + date;
+    }
+    
+    
     
     
     
