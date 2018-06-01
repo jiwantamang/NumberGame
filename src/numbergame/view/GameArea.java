@@ -47,8 +47,18 @@ public class GameArea extends javax.swing.JPanel {
                         listener.clicked(row, column,number);
                 }else{
                     if(isValidSwitched(row, column,number)){
+                        
                         int row_moved = Math.abs(row - previous_row);
                         int column_moved = Math.abs(column - previous_column);
+                        
+                        if(row != previous_row && column != previous_column && ((Math.abs(row - previous_row)) == 1)){
+                            if((column == 1 || column == 9)  && (previous_column == 9 || previous_column == 1)){
+                                row_moved = 0;
+                                column_moved = 0;
+                            }                    
+                        }
+                        
+                        
                         
                         // check if pair or not
                         
@@ -1211,6 +1221,14 @@ public class GameArea extends javax.swing.JPanel {
                         return true;
                         
                     }                
+                }
+                
+                
+                // if not above then may be new row is clicked with last edge
+                if(new_row != previous_row && new_column != previous_column && ((Math.abs(new_row - previous_row)) == 1)){
+                    if((new_column == 1 || new_column == 9)  && (previous_column == 9 || previous_column == 1)){
+                        return true;
+                    }                    
                 }
                 
                 return false;
