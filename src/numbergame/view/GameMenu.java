@@ -7,6 +7,10 @@ package numbergame.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import numbergame.model.Score;
+import numbergame.service.ScoreService;
+import numbergame.service.ScoreServiceImpl;
 
 /**
  *
@@ -81,6 +85,12 @@ public class GameMenu extends javax.swing.JPanel implements ActionListener{
         }
         
         if(e.getSource() == btnHighScore){
+            ScoreService scoreService = new ScoreServiceImpl();
+            List<Score> scores = scoreService.getHighScores(1, 1);
+            
+            for(Score s : scores){
+                System.out.println(s.getTime()+ " "+ s.getDate() + " "+s.getPlayers_initial()+ " "+s.getPair() + " "+s.getPlayers_score());
+            }
             
         }
     }

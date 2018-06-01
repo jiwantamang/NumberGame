@@ -170,4 +170,9 @@ public class ScorePanel extends javax.swing.JPanel implements ActionListener{
             listener.buttonClicked("exit");
         }
     }
+
+    void resetScores() {
+        lblPairs.setText("0");
+        lblScores.setText("0");
+    }
 }

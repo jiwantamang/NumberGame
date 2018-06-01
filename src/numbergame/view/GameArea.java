@@ -62,16 +62,23 @@ public class GameArea extends javax.swing.JPanel {
                             // update point listener
                             List<Integer> point = new ArrayList<>();
                             
+                            // define additional point
+                            int additional_point = 0;
+                            
+                            
                             // check either row or column is moved
-                            if(row_moved > 0){
+                            if(row_moved >= 2){
                                 // check if blank panel is between
+                                additional_point = (row_moved - 1) * 2;
                                 
                             }
-                            if(column_moved > 0){
+                            if(column_moved >= 2){
                                 // check if blank panel is between
+                                additional_point = (column_moved - 1) * 2;
                             }
-                            point.add(10);
+                            point.add(10 + additional_point);
                             pointListener.pointGained(point);
+                            
                         }
                                                 
                     }else{
